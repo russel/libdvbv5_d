@@ -21,6 +21,9 @@
  *
  */
 
+module libdvbv5_d.linux_dmx;
+
+
 import core.sys.posix.sys.ioctl: _IO, _IOR, _IOW;
 
 extern (C):
