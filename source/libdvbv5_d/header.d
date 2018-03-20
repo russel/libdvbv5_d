@@ -21,6 +21,8 @@
 
 module libdvbv5_d.header;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /* ssize_t */
@@ -142,7 +144,7 @@ struct dvb_table_header
     ubyte last_section; /* last_section_number */
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses MPEG-TS table header
@@ -161,4 +163,3 @@ void dvb_table_header_init (dvb_table_header* header);
 void dvb_table_header_print (
     dvb_v5_fe_parms* parms,
     const(dvb_table_header)* header);
-

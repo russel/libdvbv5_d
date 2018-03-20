@@ -40,6 +40,8 @@ module libdvbv5_d.desc_extension;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 struct dvb_v5_fe_parms;
@@ -221,4 +223,3 @@ void dvb_extension_descriptor_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void dvb_extension_descriptor_free (dvb_desc* desc);
-

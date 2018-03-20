@@ -38,6 +38,8 @@
 
 module libdvbv5_d.desc_terrestrial_delivery;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -157,4 +159,3 @@ extern __gshared const(uint)[] dvbt_interval;
  *	  enum fe_transmit_mode, as defined by DVBv5 API.
  */
 extern __gshared const(uint)[] dvbt_transmission_mode;
-

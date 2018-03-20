@@ -36,6 +36,8 @@
 
 module libdvbv5_d.desc_network_name;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -105,4 +107,3 @@ void dvb_desc_network_name_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void dvb_desc_network_name_free (dvb_desc* desc);
-

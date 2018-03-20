@@ -7,17 +7,7 @@ project(
     default_options: ['buildtype=release'],
 )
 
-sources = [
-    'source/libdvbv5_d/linux_dmx.d',
-    'source/libdvbv5_d/dvb_v5_std.d',
-    'source/libdvbv5_d/dvb_frontend.d',
-    'source/libdvbv5_d/dvb_log.d',
-    'source/libdvbv5_d/dvb_demux.d',
-    'source/libdvbv5_d/dvb_fe.d',
-    'source/libdvbv5_d/dvb_file.d',
-    'source/libdvbv5_d/dvb_scan.d',
-    'source/libdvbv5_d/dvb_sat.d',
-]
+sources = run_command('sh', '-c', 'cd $MESON_SOURCE_ROOT && ls source/libdvbv5_d/*').stdout().split()
 
 includes = [
   include_directories('source'),
@@ -50,8 +40,8 @@ install_headers(sources, subdir: 'd/' + meson.project_name())
 pc_file_data = configuration_data()
 pc_file_data.set('NAME', meson.project_name())
 pc_file_data.set('VERSION', meson.project_version())
-pc_file_data.set('DESCRIPTION', 'D binding for the libdvbv5 library..')
-pc_file_data.set('LIBS', '-L-L${libdir} -L-l' + meson.project_name())
+pc_file_data.set('DESCRIPTION', 'D binding for the libdvbv5 library.')
+pc_file_data.set('LIBS', '-L-L${libdir} -L-ldvbv5_d')
 pc_file_data.set('CFLAGS', '-I${includedir}/d')
 pc_file_data.set('PREFIX', get_option('prefix'))
 pc_file = configure_file(configuration: pc_file_data, input: meson.project_name() + '.pc.in', output: meson.project_name() + '.pc')

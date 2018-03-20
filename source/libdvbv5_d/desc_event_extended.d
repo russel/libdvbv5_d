@@ -36,6 +36,8 @@
 
 module libdvbv5_d.desc_event_extended;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -126,4 +128,3 @@ void dvb_desc_event_extended_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void dvb_desc_event_extended_free (dvb_desc* desc);
-

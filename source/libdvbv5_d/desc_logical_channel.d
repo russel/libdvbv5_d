@@ -40,6 +40,8 @@
 
 module libdvbv5_d.desc_logical_channel;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -138,4 +140,3 @@ void dvb_desc_logical_channel_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void dvb_desc_logical_channel_free (dvb_desc* desc);
-

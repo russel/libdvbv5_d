@@ -40,6 +40,9 @@ module libdvbv5_d.pmt;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -211,7 +214,7 @@ struct dvb_table_pmt_stream
         }
     }
 
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     dvb_table_pmt_stream* next;
 }
@@ -336,4 +339,3 @@ void dvb_table_pmt_free (dvb_table_pmt* table);
  * @param table pointer to struct dvb_table_pmt
  */
 void dvb_table_pmt_print (dvb_v5_fe_parms* parms, const(dvb_table_pmt)* table);
-

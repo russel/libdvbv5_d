@@ -19,6 +19,8 @@
 
 module libdvbv5_d.desc_atsc_service_location;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -155,4 +157,3 @@ void atsc_desc_service_location_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void atsc_desc_service_location_free (dvb_desc* desc);
-

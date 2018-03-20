@@ -38,6 +38,8 @@
 
 module libdvbv5_d.desc_hierarchy;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -104,4 +106,3 @@ int dvb_desc_hierarchy_init (
  * @param desc	pointer to struct dvb_desc
  */
 void dvb_desc_hierarchy_print (dvb_v5_fe_parms* parms, const(dvb_desc)* desc);
-

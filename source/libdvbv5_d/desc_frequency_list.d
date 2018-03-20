@@ -20,6 +20,8 @@
 
 module libdvbv5_d.desc_frequency_list;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -115,4 +117,3 @@ int dvb_desc_frequency_list_init (
 void dvb_desc_frequency_list_print (
     dvb_v5_fe_parms* parms,
     const(dvb_desc)* desc);
-

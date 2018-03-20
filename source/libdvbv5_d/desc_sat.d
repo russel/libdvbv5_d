@@ -36,6 +36,8 @@
 
 module libdvbv5_d.desc_sat;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -151,4 +153,3 @@ extern __gshared const(uint)[] dvbs_rolloff;
  *	  as defined by DVBv5 API.
  */
 extern __gshared const(uint)[] dvbs_modulation;
-

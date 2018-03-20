@@ -17,8 +17,8 @@
 module libdvbv5_d.dvb_file;
 
 import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
-import libdvbv5_d.dvb_frontend: DTV_MAX_COMMAND,
-	dtv_property;
+import libdvbv5_d.dvb_frontend: DTV_MAX_COMMAND, dtv_property;
+import libdvbv5_d.dvb_scan:  dvb_v5_descriptors;
 
 extern (C):
 
@@ -251,7 +251,7 @@ enum dvb_file_formats
     FILE_VDR = 4
 }
 
-struct dvb_v5_descriptors;
+// struct dvb_v5_descriptors;
 
 /**
  * @brief Deallocates memory associated with a struct dvb_file

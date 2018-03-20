@@ -37,6 +37,8 @@
 
 module libdvbv5_d.desc_ca;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -126,4 +128,3 @@ void dvb_desc_ca_print (dvb_v5_fe_parms* parms, const(dvb_desc)* desc);
  * @param desc pointer to struct dvb_desc to be freed
  */
 void dvb_desc_ca_free (dvb_desc* desc);
-

@@ -37,6 +37,8 @@
 
 module libdvbv5_d.desc_cable_delivery;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -145,4 +147,3 @@ extern __gshared const(uint)[] dvbc_modulation_table;
  *	  as defined by DVBv5 API.
  */
 extern __gshared const(uint)[] dvbc_fec_table;
-

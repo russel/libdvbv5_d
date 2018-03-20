@@ -1,19 +1,6 @@
 name "libdvbv5_d"
-description "A DStep (with manual bits) generated binding for libdvbv5."
+description "A D binding for libdvbv5."
 authors "Russel Winder"
-copyright "Copyright © 2017, Russel Winder"
+copyright "Copyright © 2018, Russel Winder"
 license "LGPL-3.0"
-
-configuration "library" {
-              targetType "library"
-              sourcePath "generated"
-              sourceFiles \
-                          "source/linux_dvb/dmx.d" \
-                          "source/libdvbv5/dvb_v5_std.d" \
-                          "source/libdvbv5/dvb_frontend.d" \
-                          "source/libdvbv5/dvb_log.d" \
-                          "source/libdvbv5/dvb_demux.d" \
-                          "source/libdvbv5/dvb_fe.d" \
-                          "source/libdvbv5/dvb_file.d" \
-                          "source/libdvbv5/dvb_scan.d"
-}
+targetType "library"

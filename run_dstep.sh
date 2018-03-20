@@ -1,6 +1,6 @@
 #!/bin/sh
 
-location=libdvbv5_d/source_new
+location=source_new/libdvbv5_d
 
 mkdir -p $location
 rm -rf $location/*

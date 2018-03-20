@@ -41,6 +41,8 @@
 
 module libdvbv5_d.desc_partial_reception;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -120,4 +122,3 @@ void isdb_desc_partial_reception_print (
  * @param desc pointer to struct dvb_desc to be freed
  */
 void isdb_desc_partial_reception_free (dvb_desc* desc);
-

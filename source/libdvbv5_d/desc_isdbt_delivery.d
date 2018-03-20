@@ -35,6 +35,8 @@
 
 module libdvbv5_d.desc_isdbt_delivery;
 
+import libdvbv5_d.descriptors: dvb_desc;
+
 extern (C):
 
 /**
@@ -134,4 +136,3 @@ extern __gshared const(uint)[] isdbt_interval;
  * Converts an ISDB-T mode into a string
  */
 extern __gshared const(uint)[] isdbt_mode;
-

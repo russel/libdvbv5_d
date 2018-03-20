@@ -40,6 +40,9 @@ module libdvbv5_d.pat;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -136,7 +139,7 @@ struct dvb_table_pat
  * @param _pat		pointer to struct dvb_table_pat_program
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses PAT table
@@ -176,4 +179,3 @@ void dvb_table_pat_free (dvb_table_pat* table);
  * @param table pointer to struct dvb_table_pat
  */
 void dvb_table_pat_print (dvb_v5_fe_parms* parms, dvb_table_pat* table);
-

@@ -19,7 +19,10 @@
 module libdvbv5_d.dvb_scan;
 
 import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.dvb_file: dvb_entry;
 import libdvbv5_d.dvb_v5_std: dvb_sat_polarization;
+import libdvbv5_d.pat: dvb_table_pat_program, dvb_table_pat;
+import libdvbv5_d.pmt: dvb_table_pmt;
 
 extern (C):
 
@@ -38,7 +41,7 @@ extern (C):
 
 enum MAX_TABLE_SIZE = 1024 * 1024;
 
-struct dvb_entry;
+// struct dvb_entry;
 
 /**
  * @struct dvb_v5_descriptors_program
@@ -50,9 +53,9 @@ struct dvb_entry;
  */
 struct dvb_v5_descriptors_program
 {
-    struct dvb_table_pat_program;
+    // struct dvb_table_pat_program;
     dvb_table_pat_program* pat_pgm;
-    struct dvb_table_pmt;
+    // struct dvb_table_pmt;
     dvb_table_pmt* pmt;
 }
 
@@ -90,7 +93,7 @@ struct dvb_v5_descriptors
     dvb_entry* entry;
     uint num_entry;
 
-    struct dvb_table_pat;
+    // struct dvb_table_pat;
     dvb_table_pat* pat;
     struct atsc_table_vct;
     atsc_table_vct* vct;

@@ -32,6 +32,9 @@ module libdvbv5_d.cat;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -59,7 +62,7 @@ struct dvb_table_cat
     align (1):
 
     dvb_table_header header;
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
 }
 
@@ -100,4 +103,3 @@ void dvb_table_cat_free (dvb_table_cat* table);
  * @param table pointer to struct dvb_table_cat
  */
 void dvb_table_cat_print (dvb_v5_fe_parms* parms, dvb_table_cat* table);
-
