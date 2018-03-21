@@ -41,6 +41,7 @@
 module libdvbv5_d.desc_logical_channel;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -100,7 +101,7 @@ struct dvb_desc_logical_channel
     dvb_desc_logical_channel_number* lcn;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the logical channel number descriptor

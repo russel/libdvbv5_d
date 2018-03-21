@@ -21,6 +21,8 @@ module libdvbv5_d.mpeg_pes;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -242,7 +244,7 @@ struct dvb_mpeg_pes
     dvb_mpeg_pes_optional[] optional;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initialize a struct dvb_mpeg_pes from buffer
@@ -286,4 +288,3 @@ void dvb_mpeg_pes_free (dvb_mpeg_pes* pes);
  * This function prints the fields of struct dvb_mpeg_pes
  */
 void dvb_mpeg_pes_print (dvb_v5_fe_parms* parms, dvb_mpeg_pes* pes);
-

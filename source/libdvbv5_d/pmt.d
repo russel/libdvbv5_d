@@ -41,6 +41,7 @@ module libdvbv5_d.pmt;
 import core.sys.posix.unistd;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 import libdvbv5_d.header: dvb_table_header;
 
 extern (C):
@@ -286,10 +287,10 @@ struct dvb_table_pmt
 }
 
 /** @brief First field at the struct */
-enum dvb_pmt_field_first = header;
+// enum dvb_pmt_field_first = header;
 
 /** @brief First field that are not part of the received data */
-enum dvb_pmt_field_last = descriptor;
+// enum dvb_pmt_field_last = descriptor;
 
 /**
  * @brief Macro used to find streams on a PMT table
@@ -299,7 +300,7 @@ enum dvb_pmt_field_last = descriptor;
  * @param _pmt		pointer to struct dvb_table_pmt_stream
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses PMT table

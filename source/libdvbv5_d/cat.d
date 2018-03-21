@@ -33,6 +33,7 @@ module libdvbv5_d.cat;
 import core.sys.posix.unistd;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 import libdvbv5_d.header: dvb_table_header;
 
 extern (C):
@@ -66,7 +67,7 @@ struct dvb_table_cat
     dvb_desc* descriptor;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses CAT table

@@ -22,6 +22,10 @@ module libdvbv5_d.sdt;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /**
@@ -114,7 +118,7 @@ struct dvb_table_sdt_service
         }
     }
 
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     dvb_table_sdt_service* next;
 }
@@ -156,7 +160,7 @@ struct dvb_table_sdt
  * @param _sdt		pointer to struct dvb_table_sdt_service
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses SDT table
@@ -196,4 +200,3 @@ void dvb_table_sdt_free (dvb_table_sdt* table);
  * @param table pointer to struct dvb_table_sdt
  */
 void dvb_table_sdt_print (dvb_v5_fe_parms* parms, dvb_table_sdt* table);
-

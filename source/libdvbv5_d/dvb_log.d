@@ -20,6 +20,8 @@
 
 module libdvbv5_d.dvb_log;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -54,7 +56,7 @@ alias dvb_logfunc_priv = void function (void* logpriv, int level, const(char)* f
  * Macros used internally inside libdvbv5 frontend part, to output logs
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 /**
  * @brief retrieve the logging function with private data from the private fe params.
  */
@@ -76,4 +78,3 @@ extern (D) auto dvb_perror(T)(auto ref T msg)
  * @param fmt		format string (same as format string on sprintf)
  */
 void dvb_default_log (int level, const(char)* fmt, ...);
-

@@ -39,6 +39,10 @@ module libdvbv5_d.mgt;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -121,7 +125,7 @@ struct atsc_table_mgt_table
         }
     }
 
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     atsc_table_mgt_table* next;
 }
@@ -166,7 +170,7 @@ struct atsc_table_mgt
  * @param _mgt		pointer to struct atsc_table_mgt_table
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses MGT table
@@ -206,4 +210,3 @@ void atsc_table_mgt_free (atsc_table_mgt* table);
  * @param table pointer to struct atsc_table_mgt
  */
 void atsc_table_mgt_print (dvb_v5_fe_parms* parms, atsc_table_mgt* table);
-

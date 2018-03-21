@@ -21,6 +21,8 @@ module libdvbv5_d.mpeg_ts;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -151,7 +153,7 @@ struct dvb_mpeg_ts
     dvb_mpeg_ts_adaption[] adaption;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initialize a struct dvb_mpeg_ts from buffer
@@ -197,4 +199,3 @@ void dvb_mpeg_ts_free (dvb_mpeg_ts* ts);
  * This function prints the fields of struct dvb_mpeg_ts
  */
 void dvb_mpeg_ts_print (dvb_v5_fe_parms* parms, dvb_mpeg_ts* ts);
-

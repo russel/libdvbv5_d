@@ -37,6 +37,7 @@
 module libdvbv5_d.desc_event_short;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -73,7 +74,7 @@ struct dvb_desc_event_short
     char* text_emph;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the short event descriptor

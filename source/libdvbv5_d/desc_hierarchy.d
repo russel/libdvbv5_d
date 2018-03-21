@@ -39,6 +39,7 @@
 module libdvbv5_d.desc_hierarchy;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -75,7 +76,7 @@ struct dvb_desc_hierarchy
         ubyte, "reserved4", 2));
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the hierarchy descriptor

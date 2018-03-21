@@ -22,7 +22,10 @@ import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 import libdvbv5_d.dvb_file: dvb_entry;
 import libdvbv5_d.dvb_v5_std: dvb_sat_polarization;
 import libdvbv5_d.pat: dvb_table_pat_program, dvb_table_pat;
+import libdvbv5_d.nit: dvb_table_nit;
 import libdvbv5_d.pmt: dvb_table_pmt;
+import libdvbv5_d.sdt: dvb_table_sdt;
+import libdvbv5_d.vct: atsc_table_vct;
 
 extern (C):
 
@@ -95,12 +98,12 @@ struct dvb_v5_descriptors
 
     // struct dvb_table_pat;
     dvb_table_pat* pat;
-    struct atsc_table_vct;
+    // struct atsc_table_vct;
     atsc_table_vct* vct;
     dvb_v5_descriptors_program* program;
-    struct dvb_table_nit;
+    // struct dvb_table_nit;
     dvb_table_nit* nit;
-    struct dvb_table_sdt;
+    // struct dvb_table_sdt;
     dvb_table_sdt* sdt;
 
     uint num_program;

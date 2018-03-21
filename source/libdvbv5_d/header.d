@@ -135,9 +135,10 @@ struct dvb_table_header
 
     ushort id;
 
+
     mixin(bitfields!(
         ubyte, "current_next", 1,
-        ubyte, "version", 5,
+        ubyte, "version_", 5,
         ubyte, "one2", 2)); /* TS ID */
 
     ubyte section_id; /* section_number */

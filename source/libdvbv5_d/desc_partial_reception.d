@@ -42,6 +42,7 @@
 module libdvbv5_d.desc_partial_reception;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -82,7 +83,7 @@ struct isdb_desc_partial_reception
     isdb_partial_reception_service_id* partial_reception;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the ISDB-T partial reception descriptor

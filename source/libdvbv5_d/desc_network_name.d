@@ -37,6 +37,7 @@
 module libdvbv5_d.desc_network_name;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -67,7 +68,7 @@ struct dvb_desc_network_name
     char* network_name_emph;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the network name descriptor

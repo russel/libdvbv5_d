@@ -35,6 +35,9 @@
 
 module libdvbv5_d.desc_t2_delivery;
 
+import libdvbv5_d.desc_extension: dvb_extension_descriptor;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -165,7 +168,7 @@ struct dvb_desc_t2_delivery
     dvb_desc_t2_delivery_cell* cell;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the T2 delivery system descriptor
@@ -232,4 +235,3 @@ extern __gshared const(uint)[] dvbt2_transmission_mode;
  *	  field of dvb_desc_t2_delivery:SISO_MISO field.
  */
 extern __gshared const(char)*[4] siso_miso;
-

@@ -36,6 +36,7 @@
 module libdvbv5_d.desc_isdbt_delivery;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -85,7 +86,7 @@ struct isdbt_desc_terrestrial_delivery_system
     }
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the ISDB-T terrestrial delivery system

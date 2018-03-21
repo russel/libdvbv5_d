@@ -44,6 +44,8 @@ module libdvbv5_d.descriptors;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -58,7 +60,7 @@ enum DVB_MAX_PAYLOAD_PACKET_SIZE = 4096;
  */
 enum DVB_CRC_SIZE = 4;
 
-struct dvb_v5_fe_parms;
+//struct dvb_v5_fe_parms;
 
 /**
  * @brief Function prototype for a function that initializes the
@@ -748,4 +750,3 @@ enum descriptors
 }
 
 /* Please see desc_extension.h for extension_descriptor types */
-

@@ -38,6 +38,7 @@
 module libdvbv5_d.desc_ca;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -85,12 +86,12 @@ struct dvb_desc_ca
     ubyte privdata_len;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /** @brief initial descriptor field at dvb_desc_ca struct */
-enum dvb_desc_ca_field_first = ca_id;
+// enum dvb_desc_ca_field_first = ca_id;
 /** @brief last descriptor field at dvb_desc_ca struct */
-enum dvb_desc_ca_field_last = privdata;
+// enum dvb_desc_ca_field_last = privdata;
 
 /**
  * @brief Initializes and parses the CA descriptor

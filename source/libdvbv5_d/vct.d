@@ -41,6 +41,10 @@ module libdvbv5_d.vct;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -177,7 +181,7 @@ struct atsc_table_vct_channel
     	 * won't be bit-mapped to the data parsed from the MPEG TS. So,
     	 * metadata are added there
     	 */
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     atsc_table_vct_channel* next;
 
@@ -247,7 +251,7 @@ union atsc_table_vct_descriptor_length
  * @param _vct		pointer to struct atsc_table_vct_channel
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses VCT table
@@ -285,4 +289,3 @@ void atsc_table_vct_free (atsc_table_vct* table);
  * @param table pointer to struct atsc_table_vct
  */
 void atsc_table_vct_print (dvb_v5_fe_parms* parms, atsc_table_vct* table);
-

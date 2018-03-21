@@ -39,7 +39,12 @@
 
 module libdvbv5_d.eit;
 
+import core.stdc.time: tm;
 import core.sys.posix.unistd;
+
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
 
 extern (C):
 
@@ -135,7 +140,7 @@ struct dvb_table_eit_event
         }
     }
 
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     dvb_table_eit_event* next;
     tm start;
@@ -182,7 +187,7 @@ struct dvb_table_eit
  * @param _eit		pointer to struct dvb_table_eit_event
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /** @brief Converts a running_status field into string */
 extern __gshared const(char)*[8] dvb_eit_running_status_name;
@@ -235,4 +240,3 @@ void dvb_table_eit_print (dvb_v5_fe_parms* parms, dvb_table_eit* table);
  *			be stored.
  */
 void dvb_time (ref const(ubyte)[5] data, tm* tm);
-

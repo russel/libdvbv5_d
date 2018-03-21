@@ -18,6 +18,8 @@
 
 module libdvbv5_d.dvb_sat;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -72,7 +74,7 @@ struct dvb_sat_lnb
     dvbsat_freqrange[2] freqrange;
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /* From libsat.c */
 

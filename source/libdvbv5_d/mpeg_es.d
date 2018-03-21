@@ -21,6 +21,8 @@ module libdvbv5_d.mpeg_es;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+
 extern (C):
 
 /**
@@ -234,7 +236,7 @@ enum dvb_mpeg_es_frame_t
  */
 extern __gshared const(char)*[5] dvb_mpeg_es_frame_names;
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initialize a struct dvb_mpeg_es_seq_start from buffer
@@ -299,4 +301,3 @@ int dvb_mpeg_es_pic_start_init (
 void dvb_mpeg_es_pic_start_print (
     dvb_v5_fe_parms* parms,
     dvb_mpeg_es_pic_start* pic_start);
-

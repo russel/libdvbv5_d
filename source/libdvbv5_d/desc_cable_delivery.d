@@ -38,6 +38,7 @@
 module libdvbv5_d.desc_cable_delivery;
 
 import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 
 extern (C):
 
@@ -102,7 +103,7 @@ struct dvb_desc_cable_delivery
     }
 }
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses the service location descriptor

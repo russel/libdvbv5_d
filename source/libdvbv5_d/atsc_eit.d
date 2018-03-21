@@ -38,7 +38,12 @@
 
 module libdvbv5_d.atsc_eit;
 
+import core.stdc.time: tm;
 import core.sys.posix.unistd;
+
+import libdvbv5_d.descriptors: dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
 
 extern (C):
 
@@ -121,7 +126,7 @@ struct atsc_table_eit_event
         }
     }
 
-    struct dvb_desc;
+    // struct dvb_desc;
     dvb_desc* descriptor;
     atsc_table_eit_event* next;
     tm start;
@@ -195,7 +200,7 @@ struct atsc_table_eit
  * @param _eit				pointer to struct atsc_table_eit_event
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses ATSC EIT table
@@ -245,4 +250,3 @@ void atsc_table_eit_print (dvb_v5_fe_parms* parms, atsc_table_eit* table);
  *			be stored.
  */
 void atsc_time (const uint start_time, tm* tm);
-

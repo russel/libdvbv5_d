@@ -22,6 +22,10 @@ module libdvbv5_d.nit;
 
 import core.sys.posix.unistd;
 
+import libdvbv5_d.descriptors: descriptors, dvb_desc;
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.header: dvb_table_header;
+
 extern (C):
 
 /* ssize_t */
@@ -225,7 +229,7 @@ alias nit_tran_handler_callback_t = void function (
  * @param _nit		pointer to struct dvb_table_nit_transport
  */
 
-struct dvb_v5_fe_parms;
+// struct dvb_v5_fe_parms;
 
 /**
  * @brief Initializes and parses NIT table
@@ -302,4 +306,3 @@ void dvb_table_nit_descriptor_handler (
     void function () call_nit,
     void function () call_tran,
     void* priv);
-

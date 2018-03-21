@@ -20,6 +20,13 @@ module libdvbv5_d.dvb_dev;
 
 import core.stdc.stdio;
 
+import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
+import libdvbv5_d.dvb_file: dvb_entry;
+import libdvbv5_d.dvb_log: dvb_logfunc, dvb_logfunc_priv;
+import libdvbv5_d.dvb_scan: dvb_v5_descriptors;
+
+import libdvbv5_d.linux_dmx: dmx_output_t, dmx_pes_type_t;
+
 extern (C):
 
 /**
@@ -339,7 +346,7 @@ int dvb_dev_get_fd (dvb_open_descriptor* open_dev);
  * @return On success, returns the number of bytes read. Returns -1 on
  * error.
  */
-ssize_t dvb_dev_read (dvb_open_descriptor* open_dev, void* buf, size_t count);
+size_t dvb_dev_read (dvb_open_descriptor* open_dev, void* buf, size_t count);
 
 /**
  * @brief Stops the demux filter for a given file descriptor
@@ -500,4 +507,3 @@ dvb_v5_descriptors* dvb_dev_scan (
  */
 
 int dvb_dev_remote_init (dvb_device* d, char* server, int port);
-
