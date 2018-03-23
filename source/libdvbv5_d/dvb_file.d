@@ -16,6 +16,8 @@
 
 module libdvbv5_d.dvb_file;
 
+import core.stdc.stdlib: free;
+
 import libdvbv5_d.dvb_fe: dvb_v5_fe_parms;
 import libdvbv5_d.dvb_frontend: DTV_MAX_COMMAND, dtv_property;
 import libdvbv5_d.dvb_scan:  dvb_v5_descriptors;
@@ -262,7 +264,31 @@ enum dvb_file_formats
  * This function assumes that several functions were dynamically allocated
  * by the library file functions.
  */
-void dvb_file_free (dvb_file* dvb_file);
+
+// DStep produces:
+//
+//void dvb_file_free (dvb_file* dvb_file);
+//
+// for this but it is an inline function with no symbol in the libdvbv5.so shared object.
+// An implementation must be provided, this is a translation from C to D.
+
+void dvb_file_free(dvb_file *dvb_file) {
+	dvb_entry *entry = dvb_file.first_entry;
+	dvb_entry *next;
+	while (entry) {
+		next = entry.next;
+		if (entry.channel) { free(entry.channel); }
+		if (entry.vchannel) { free(entry.vchannel); }
+		if (entry.location) { free(entry.location); }
+		if (entry.video_pid) { free(entry.video_pid); }
+		if (entry.audio_pid) { free(entry.audio_pid); }
+		if (entry.other_el_pid) { free(entry.other_el_pid); }
+		if (entry.lnb) { free(entry.lnb); }
+		free(entry);
+		entry = next;
+	}
+	free(dvb_file);
+}
 
 /*
  * File format description structures defined for the several formats that
