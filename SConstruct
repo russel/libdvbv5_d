@@ -21,6 +21,6 @@ testEnvironment['isTest'] = True
 
 testExecutable, _ = SConscript('SConscript', variant_dir=buildDirectory + '/Test', duplicate=0, exports={'environment': testEnvironment})
 
-Alias('test', testExecutable)
+Command('test', testExecutable, './$SOURCE')
 
 Clean('.', buildDirectory)
