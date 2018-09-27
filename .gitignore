@@ -2,6 +2,6 @@
 *.o
 *.obj
 /.dub/
-/source/libdvbv5_new/
+/source_new/
 /Build/
 /.sconsign.dblite
