@@ -13,7 +13,7 @@ includes = [
   include_directories('source'),
 ]
 
-library(
+libdvbv5_d = library(
   'dvbv5_d',
   sources,
   include_directories: includes,
@@ -30,8 +30,8 @@ pkgconfig.generate(
     description: 'D binding for the libdvbv5 library.',
     name: meson.project_name(),
     version: meson.project_version(),
-    subdirs: 'd',
-    libraries: meson.project_name(),
+    subdirs: 'd/',
+    libraries: libdvbv5_d,
 )
 
 test_executable = executable(
