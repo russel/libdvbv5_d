@@ -3,7 +3,7 @@
 project(
     'libdvbv5_d',
     'd',
-    version: '0.0.1',
+    version: '0.0.3',
     default_options: ['buildtype=release'],
 )
 
