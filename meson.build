@@ -13,7 +13,7 @@ includes = [
   include_directories('source'),
 ]
 
-shared_library(
+library(
   'dvbv5_d',
   sources,
   include_directories: includes,
@@ -22,15 +22,6 @@ shared_library(
   version: meson.project_version(),
   install: true,
 )
-
-#static_library(
-#  'dvbv5_d',
-#  sources,
-#  include_directories: includes,
-#  d_args: [],
-#  link_args: [],
-#  install: true,
-#)
 
 install_headers(sources, subdir: 'd/' + meson.project_name())
 
