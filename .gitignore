@@ -2,6 +2,4 @@
 *.o
 *.obj
 /.dub/
-/source_new/
-/Build/
-/.sconsign.dblite
+/generated_new/
