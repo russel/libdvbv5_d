@@ -1,10 +1,10 @@
 buildDirectory = 'Build'
 
-version = '0.0.3'
+version = '0.1.0'
 
 environment = Environment(
     tools=['ldc', 'link', 'ar'],
-    DPATH=['#source',],
+    DPATH=['#source', '#generated'],
     DFLAGS=['-O', '-release'],
     SHLIBVERSION=version,
     DSHLIBVERSION=version,

@@ -3,14 +3,15 @@
 project(
     'libdvbv5_d',
     'd',
-    version: '0.0.3',
+    version: '0.1.0',
     default_options: ['buildtype=release'],
 )
 
-sources = run_command('sh', '-c', 'cd $MESON_SOURCE_ROOT && ls source/libdvbv5_d/*.d').stdout().split()
+sources = run_command('sh', '-c', 'cd $MESON_SOURCE_ROOT && ls source/libdvbv5_d/*.d generated/libdvbv5_d/*.d').stdout().split()
 
 includes = [
   include_directories('source'),
+  include_directories('generated'),
 ]
 
 libdvbv5_d = library(
