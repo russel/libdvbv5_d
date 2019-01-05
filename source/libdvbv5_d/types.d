@@ -1,3 +1,22 @@
+/*
+ *  libdvbv5-d — a D binding to the libdvbv5 library.
+ *
+ *  Copyright © 2018, 2019  Russel Winder
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU Lesser General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ *  GNU Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Lesser General Public License
+ *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 import std.exception: enforce;
 import std.string: toStringz;
 
@@ -7,9 +26,8 @@ import libdvbv5_d.dvb_file: dvb_file, dvb_entry, dvb_file_free, dvb_file_formats
 import libdvbv5_d.dvb_scan: dvb_v5_descriptors, check_frontend_t, dvb_scan_transponder, dvb_scan_free_handler_table;
 
 /**
- * A pair (adapter_number, frontend_number) to uniquely index all the frontends
- * available at any one time during execution. Collected directly from the files
- * in /dev/dvb.
+ * A pair (adapter_number, frontend_number) to uniquely identify the frontends
+ * available at any one time during execution.
  */
 struct FrontendId {
 	const uint adapter_number;
@@ -48,8 +66,7 @@ struct TuningId {
 };
 
 /**
- * Given an adapter_number and a frontend_number for that adapter, instances of this type
- * are RAII compliant pointers to the kernel managed data relating to that frontend.
+ * An RAII compliant pointer to the kernel managed data relating to a frontend given a `FrontendId`.
  *
  * The idea is that this is a domain specific std::unique_ptr like type.
  */
