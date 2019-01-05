@@ -1,7 +1,7 @@
 name "libdvbv5_d"
 description "A D binding for libdvbv5."
 authors "Russel Winder"
-copyright "Copyright © 2018, Russel Winder"
+copyright "Copyright © 2018, 2019  Russel Winder"
 license "LGPL-3.0"
 targetType "library"
 targetName "dvbv5_d"
