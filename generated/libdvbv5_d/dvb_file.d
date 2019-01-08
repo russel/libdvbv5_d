@@ -273,21 +273,23 @@ enum dvb_file_formats
 // An implementation must be provided, this is a translation from C to D.
 
 void dvb_file_free(dvb_file *dvb_file) {
-	dvb_entry *entry = dvb_file.first_entry;
-	dvb_entry *next;
-	while (entry) {
-		next = entry.next;
-		if (entry.channel) { free(entry.channel); }
-		if (entry.vchannel) { free(entry.vchannel); }
-		if (entry.location) { free(entry.location); }
-		if (entry.video_pid) { free(entry.video_pid); }
-		if (entry.audio_pid) { free(entry.audio_pid); }
-		if (entry.other_el_pid) { free(entry.other_el_pid); }
-		if (entry.lnb) { free(entry.lnb); }
-		free(entry);
-		entry = next;
+	if (dvb_file !is null) {
+		dvb_entry * entry = dvb_file.first_entry;
+		dvb_entry * next;
+		while (entry !is null) {
+			next = entry.next;
+			if (entry.channel !is null) { free(entry.channel); }
+			if (entry.vchannel !is null) { free(entry.vchannel); }
+			if (entry.location !is null) { free(entry.location); }
+			if (entry.video_pid !is null) { free(entry.video_pid); }
+			if (entry.audio_pid !is null) { free(entry.audio_pid); }
+			if (entry.other_el_pid !is null) { free(entry.other_el_pid); }
+			if (entry.lnb !is null) { free(entry.lnb); }
+			free(entry);
+			entry = next;
+		}
+		free(dvb_file);
 	}
-	free(dvb_file);
 }
 
 /*
