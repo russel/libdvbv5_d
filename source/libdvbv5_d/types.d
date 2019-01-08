@@ -17,11 +17,14 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+module libdvbv5_d.types;
+
 import std.exception: enforce;
 import std.string: toStringz;
 
 import libdvbv5_d.dvb_demux: dvb_dmx_open, dvb_dmx_close;
 import libdvbv5_d.dvb_fe: dvb_v5_fe_parms, dvb_fe_open, dvb_fe_close;
+import libdvbv5_d.dvb_frontend: fe_delivery_system;
 import libdvbv5_d.dvb_file: dvb_file, dvb_entry, dvb_file_free, dvb_file_formats, dvb_read_file_format;
 import libdvbv5_d.dvb_scan: dvb_v5_descriptors, check_frontend_t, dvb_scan_transponder, dvb_scan_free_handler_table;
 
@@ -37,13 +40,7 @@ struct FrontendId {
 		adapter_number = a_n;
 		frontend_number = f_n;
 	}
-
-	bool opEquals()(const FrontendId other) const {
-		if (this is other) return true;
-		if (other is null) return false;
-		return this.adapter_number == other.adapter_number && this.frontend_number == other.frontend_number;
-	}
-};
+}
 
 /**
  * A pair (where the first item is a `FrontendId` pair)  to describe the tuning information
@@ -57,13 +54,11 @@ struct TuningId {
 		frontend_id = f_i;
 		channel_name = c_n;
 	}
+}
 
-	bool opEquals()(const TuningId other) const {
-		if (this is other) return true;
-		if (other is null) return false;
-		return this.frontend_id == other.frontend_id && this.channel_name == other.channel_name;
-	}
-};
+// TODO Rethink use of enfrce here; what is the right way of dealing with errors?
+//
+// Enforcing the returned pointer  to be non-null  is a very blunt tool.
 
 /**
  * An RAII compliant pointer to the kernel managed data relating to a frontend given a `FrontendId`.
@@ -78,7 +73,11 @@ struct FrontendParameters_Ptr {
 	this(const FrontendId fei, const uint verbose = 0, const uint useLegacyCall = 0) {
 		ptr = enforce(dvb_fe_open(fei.adapter_number, fei.frontend_number, verbose, useLegacyCall));
 	}
-	~this() { dvb_fe_close(ptr); }
+	~this() {
+		if (ptr !is null) {
+			dvb_fe_close(ptr);
+		}
+	}
 	auto c_ptr() { return ptr; }
 	alias c_ptr this;
 }
@@ -90,14 +89,16 @@ struct File_Ptr {
   private:
 	dvb_file* ptr;
   public:
-	//@disable this(this);
-	this(const string path, const uint delsys, const dvb_file_formats format) {
+	@disable this(this);
+	this(const string path, const fe_delivery_system delsys, const dvb_file_formats format) {
 		ptr = enforce(dvb_read_file_format(toStringz(path), delsys, format));
 	}
-	this(dvb_file* p) {
-		ptr = p;
+	this(dvb_file* p) { ptr = p; }
+	~this() {
+		if (ptr !is null) {
+			dvb_file_free(ptr);
+		}
 	}
-	~this() { dvb_file_free(ptr); }
 	bool isOpen() { return ptr !is null; }
 	auto c_ptr() { return ptr; }
 	alias c_ptr this;
@@ -146,7 +147,22 @@ struct ScanHandler_Ptr {
 				)
 		);
 	}
-	~this() { dvb_scan_free_handler_table(ptr); }
+	~this() {
+		if (ptr !is null) {
+			dvb_scan_free_handler_table(ptr);
+		}
+	}
 	auto c_ptr() { return ptr; }
 	alias c_ptr this;
 };
+
+unittest {
+	assert(FrontendId(0, 0) == FrontendId(0, 0));
+	assert(FrontendId(0, 0) != FrontendId(1, 0));
+	assert(FrontendId(0, 0) != FrontendId(0, 1));
+
+	assert(TuningId(FrontendId(0, 0), "BBC NEWS") == TuningId(FrontendId(0, 0), "BBC NEWS"));
+	assert(TuningId(FrontendId(0, 0), "BBC NEWS") != TuningId(FrontendId(1, 0), "BBC NEWS"));
+	assert(TuningId(FrontendId(0, 0), "BBC NEWS") != TuningId(FrontendId(0, 1), "BBC NEWS"));
+	assert(TuningId(FrontendId(0, 0), "BBC NEWS") != TuningId(FrontendId(0, 0), "ITV"));
+}
