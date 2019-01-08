@@ -6,3 +6,4 @@
 /.idea/
 /libdvbv5_d.a
 /libdvbv5_d-test-library
+/dub.selections.json
