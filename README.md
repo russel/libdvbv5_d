@@ -11,5 +11,5 @@ manual jiggery pokery.
 
 ## Licence
 
-This code is licenced under GPLv3.
+This code is licenced under LGPLv3.
 [![Licence](https://www.gnu.org/graphics/lgplv3-147x51.png)](https://www.gnu.org/licenses/lgpl-3.0.en.html)
