@@ -750,7 +750,7 @@ int dvb_fe_set_default_country (dvb_v5_fe_parms* parms, const(char)* country);
  */
 
 extern __gshared const(uint)[8] fe_bandwidth_name;
-extern __gshared const(char)*[71] dvb_v5_name;
+extern __gshared const(char)*[72] dvb_v5_name;
 extern __gshared const(void)*[] dvb_v5_attr_names;
 extern __gshared const(char)*[20] delivery_system_name;
 extern __gshared const(char)*[14] fe_code_rate_name;

@@ -38,7 +38,7 @@
 
 module libdvbv5_d.atsc_eit;
 
-import core.stdc.time: tm;
+import core.stdc.time;
 import core.sys.posix.unistd;
 
 import libdvbv5_d.descriptors: dvb_desc;
@@ -250,3 +250,4 @@ void atsc_table_eit_print (dvb_v5_fe_parms* parms, atsc_table_eit* table);
  *			be stored.
  */
 void atsc_time (const uint start_time, tm* tm);
+

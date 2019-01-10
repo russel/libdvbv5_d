@@ -89,6 +89,22 @@ struct dvb_ts_packet_header
 
     /* Only if adaptation_field_control > 1 */
     ubyte adaptation_field_length;
+    /* Only if adaptation_field_length >= 1 */
+    struct
+    {
+        import std.bitmanip : bitfields;
+        align (1):
+
+        mixin(bitfields!(
+            ubyte, "extension", 1,
+            ubyte, "private_data", 1,
+            ubyte, "splicing_point", 1,
+            ubyte, "OPCR", 1,
+            ubyte, "PCR", 1,
+            ubyte, "priority", 1,
+            ubyte, "random_access", 1,
+            ubyte, "discontinued", 1));
+    }
 }
 
 /**
@@ -135,7 +151,6 @@ struct dvb_table_header
 
     ushort id;
 
-
     mixin(bitfields!(
         ubyte, "current_next", 1,
         ubyte, "version_", 5,
@@ -164,3 +179,4 @@ void dvb_table_header_init (dvb_table_header* header);
 void dvb_table_header_print (
     dvb_v5_fe_parms* parms,
     const(dvb_table_header)* header);
+
