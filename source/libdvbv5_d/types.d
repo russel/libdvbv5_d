@@ -56,9 +56,8 @@ struct TuningId {
 	}
 }
 
-// TODO Rethink use of enfrce here; what is the right way of dealing with errors?
-//
-// Enforcing the returned pointer  to be non-null  is a very blunt tool.
+// TODO Rethink use of enforce here; what is the right way of dealing with errors?
+// Enforcing the returned pointer to be non-null is a very blunt tool.
 
 /**
  * An RAII compliant pointer to the kernel managed data relating to a frontend given a `FrontendId`.
@@ -90,7 +89,7 @@ struct File_Ptr {
 	dvb_file* ptr;
   public:
 	@disable this(this);
-	this(const string path, const fe_delivery_system delsys, const dvb_file_formats format) {
+	this(const string path, const fe_delivery_system delsys = fe_delivery_system.SYS_UNDEFINED, const dvb_file_formats format = dvb_file_formats.FILE_DVBV5) {
 		ptr = enforce(dvb_read_file_format(toStringz(path), delsys, format));
 	}
 	this(dvb_file* p) { ptr = p; }
